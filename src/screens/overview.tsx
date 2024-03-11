@@ -65,6 +65,7 @@ export default function Overview() {
 		container: {
 			flex: 1,
 			padding: 24,
+			backgroundColor: "#FFF",
 		},
 		main: {
 			flex: 1,
