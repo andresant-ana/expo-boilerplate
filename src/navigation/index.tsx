@@ -24,7 +24,7 @@
 		return (
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Overview">
-					<Stack.Screen name="Overview" component={Overview} />
+					<Stack.Screen name="Overview" component={Overview} options={{headerShown: false}} />
 					<Stack.Screen
 						name="Details"
 						component={Details}

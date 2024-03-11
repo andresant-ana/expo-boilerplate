@@ -1,7 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import Ionicons from '@expo/vector-icons/AntDesign';
+import Feather from '@expo/vector-icons/Feather';
 
-	import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+	import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import { RootStackParamList } from "../navigation";
 
@@ -14,11 +17,20 @@ export default function Overview() {
 			<View style={styles.container}>
 				<View style={styles.main}>
 					<View>
-						<Text style={styles.title}>Hello World</Text>
-						<Text style={styles.subtitle}>This is the first page of your app.</Text>
+						<Text style={styles.title}>Log In</Text>
+					</View>
+					<View style={styles.containerInput}>
+						<Ionicons name="mail" size={32} color={"#ADB0CD"} />
+						<TextInput placeholder="Your email" maxLength={37}>
+						</TextInput>
+					</View>
+					<View style={styles.containerInput}>
+						<Feather name="key" size={32} color={"#ADB0CD"} />
+						<TextInput secureTextEntry={true} placeholder="Password" maxLength={30}>
+						</TextInput>
 					</View>
 					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Details", { name: "Dan" })}>
-						<Text style={styles.buttonText}>Show Details</Text>
+						<Text style={styles.buttonText}>Log In</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -30,16 +42,16 @@ export default function Overview() {
 	const styles = StyleSheet.create({
 		button: {
 			alignItems: "center",
-			backgroundColor: "#6366F1",
-			borderRadius: 24,
+			backgroundColor: "#0062FF",
+			borderRadius: 8,
 			elevation: 5,
 			flexDirection: "row",
 			justifyContent: "center",
 			padding: 16,
 			shadowColor: "#000",
 			shadowOffset: {
-			height: 2,
-			width: 0
+			height: 403,
+			width: 47
 			},
 			shadowOpacity: 0.25,
 			shadowRadius: 3.84
@@ -58,14 +70,24 @@ export default function Overview() {
 			flex: 1,
 			maxWidth: 960,
 			marginHorizontal: "auto",
-			justifyContent: "space-between",
+			justifyContent: "center",
 		},
 		title: {
-			fontSize: 64,
+			fontSize: 30,
 			fontWeight: "bold",
+			paddingBottom: 30
 		},
 		subtitle: {
 			color: "#38434D",
 			fontSize: 36,
+		},
+		containerInput: {
+			flexDirection: "row",
+			borderWidth: 1,
+			borderRadius: 8,
+			padding: 10,
+			gap: 8,
+			marginBottom: 20,
+			borderColor: "#ADB0CD",
 		}
 	});
