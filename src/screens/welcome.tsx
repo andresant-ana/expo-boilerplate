@@ -6,12 +6,12 @@ type DetailsSreenRouteProp = RouteProp<RootStackParamList, "Welcome">
 
 export default function Details() {
   const router = useRoute<DetailsSreenRouteProp>()
-  const { name, userData } = router.params
+  const { userData } = router.params
 
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.title}>Welcome to my app, {name}!</Text>
+        <Text style={styles.title}>Welcome to my app!</Text>
         <Text style={styles.subtitle}>Your email: {userData.email}</Text>
       </View>
     </View>

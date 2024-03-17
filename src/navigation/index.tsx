@@ -1,50 +1,31 @@
-import { Feather } from "@expo/vector-icons"
+import * as React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
-import { Text, View, StyleSheet } from "react-native"
+import { View, Text, StyleSheet } from "react-native"
 
-import Overview from "../screens/overview"
+import Login from "../screens/login"
 import Welcome from "../screens/welcome"
+import Register from "../screens/register"
 
 export type RootStackParamList = {
-  Overview: undefined
-  Welcome: { name: string }
+  Login: undefined
+  Welcome: { userData: { email: string; password: string } }
+  Register: undefined
 }
 
-const Stack = createStackNavigator<RootStackParamList>()
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function RootStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Overview">
-        <Stack.Screen name="Overview" component={Overview} options={{ headerShown: false }} />
-        <Stack.Screen
-          name="Welcome"
-          component={Welcome}
-          options={({ navigation }) => ({
-            headerLeft: () => (
-              <View style={styles.backButton}>
-                <Feather name="chevron-left" size={16} color="#007AFF" />
-                <Text style={styles.backButtonText} onPress={navigation.goBack}>
-                  Back
-                </Text>
-              </View>
-            ),
-          })}
-        />
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
 
-const styles = StyleSheet.create({
-  backButton: {
-    flexDirection: "row",
-    paddingLeft: 20,
-  },
-  backButtonText: {
-    color: "#007AFF",
-    marginLeft: 4,
-  },
-})
+const styles = StyleSheet.create({})

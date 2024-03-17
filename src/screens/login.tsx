@@ -10,10 +10,10 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "reac
 import { RootStackParamList } from "../navigation"
 import { Divider } from "react-native-paper"
 
-type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, "Overview">
+type LoginScreenNavigationProps = StackNavigationProp<RootStackParamList, "Login">
 
-export default function Overview() {
-  const navigation = useNavigation<OverviewScreenNavigationProps>()
+export default function Login() {
+  const navigation = useNavigation<LoginScreenNavigationProps>()
 
   const [userData, setUserData] = useState({
     email: "",
@@ -70,7 +70,7 @@ export default function Overview() {
             if (!validateUser()) {
               return
             }
-            navigation.navigate("Welcome", { name: "User", userData })
+            navigation.navigate("Welcome", { userData })
           }}
         >
           <Text style={styles.buttonText}>Log In</Text>
@@ -95,7 +95,7 @@ export default function Overview() {
         </View>
         <View style={styles.signUp}>
           <Text style={styles.textSignUp}>Don't have an account?</Text>
-          <TouchableOpacity style={styles.buttonSignUp}>
+          <TouchableOpacity style={styles.buttonSignUp} onPress={() => navigation.navigate("Register")}>
             <Text style={styles.buttonForgot}>Sign Up</Text>
           </TouchableOpacity>
         </View>
