@@ -13,6 +13,7 @@ export default function Details() {
       <View style={styles.main}>
         <Text style={styles.title}>Welcome to my app!</Text>
         <Text style={styles.subtitle}>Your email: {userData.email}</Text>
+        <Text style={styles.subtitle}>Your password: {userData.password}</Text>
       </View>
     </View>
   )
